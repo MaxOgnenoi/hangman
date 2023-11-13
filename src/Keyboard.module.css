@@ -1,9 +1,10 @@
 body {
-    background-color: black;
+    background: linear-gradient(to top, #1D1A39, #662549, #AE445A, #F39F5A);
 }
+
 .btn {
     width: 100%;
-    border: 3px solid rgb(23, 127, 162);
+    border: 3px solid #662549;
     background: none;
     aspect-ratio: 1/1;
     font-size: 2.5rem;
@@ -11,11 +12,11 @@ body {
     padding: .5rem;
     font-weight: bold;
     cursor: pointer;
-    color: rgb(13, 197, 188)
+    color: #F39F5A
 }
 
 .btn.active {
-    background-color: hsl(146, 100%, 50%);
+    background-color: #E8BCB9;
     color: white;
 }
 
