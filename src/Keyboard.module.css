@@ -25,5 +25,5 @@ body {
 
 .btn:hover:not(:disabled),
 .btn:focus:not(:disabled) {
-    background-color: hsl(200, 100%, 75%);
+    background-color: hsl(200, 47%, 29%);
 }
