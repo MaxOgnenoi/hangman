@@ -1,0 +1,18 @@
+/* HangmanWord.module.css */
+
+.hangmanWord {
+    display: flex;
+    gap: 0.25em;
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+  
+  /* Additional styling for smaller screens */
+  @media only screen and (max-width: 767px) {
+    .hangmanWord {
+      font-size: 3rem; 
+    }
+  }
+  
