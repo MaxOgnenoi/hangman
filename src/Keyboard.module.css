@@ -33,20 +33,25 @@ body {
 .keyboard {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    gap: 0.5rem; 
+    gap: 0.5rem;
 }
 
 /* Responsive Styles for iPhone */
 @media only screen and (max-width: 767px) {
     body {
-        /* ... */
+        min-height: 100vh;
+        margin: 0;
+        /* Remove default margin */
+        background: linear-gradient(to top, #1D1A39, #662549, #AE445A, #F39F5A);
     }
 
     .btn {
-        width: 50px; /* Set a fixed width for the buttons on smaller screens */
+        width: 50px;
+        /* Set a fixed width for the buttons on smaller screens */
         font-size: 1.5rem;
         padding: 0;
-        margin: 0.1rem; /* Add margin to create a consistent gap between buttons on smaller screens */
+        margin: 0.1rem;
+        /* Add margin to create a consistent gap between buttons on smaller screens */
     }
 
     .keyboard {
