@@ -1,3 +1,6 @@
+import React from "react";
+import styles from "./HangmanDrawing.module.css";
+
 const HEAD = (
     <div style={{
         width: "50px",
@@ -78,11 +81,13 @@ const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG]
 type HangmanDrawingProps = { numberOfGuesses: number }
 
 export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
-    return <div style={{ position: "relative" }}>
-        {BODY_PARTS.slice(0, numberOfGuesses)}
-        <div style={{ height: "50px", width: "10px", background: "white", top: 0, right: 0, position: "absolute" }} />
-        <div style={{ height: "10px", width: "200px", background: "white", marginLeft: "120px" }} />
-        <div style={{ height: "400px", width: "10px", background: "white", marginLeft: "120px" }} />
-        <div style={{ height: "10px", width: "250px", background: "white" }} />
-    </div>
+    return (
+        <div className={styles.hangmanDrawing}>
+            {BODY_PARTS.slice(0, numberOfGuesses)}
+            <div style={{ height: "50px", width: "10px", background: "white", top: 0, right: 0, position: "absolute" }} />
+            <div style={{ height: "10px", width: "200px", background: "white", marginLeft: "120px" }} />
+            <div style={{ height: "400px", width: "10px", background: "white", marginLeft: "120px" }} />
+            <div style={{ height: "10px", width: "250px", background: "white" }} />
+        </div>
+    );
 }
