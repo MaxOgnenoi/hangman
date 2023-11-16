@@ -1,6 +1,6 @@
 // HangmanWord.tsx
 
-import React from "react";
+
 import styles from "./HangmanWord.module.css";
 
 type HangmanWordProps = {
