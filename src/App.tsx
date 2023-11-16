@@ -1,33 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import words from "./wordList.json";
 import { HangmanDrawing } from "./HangmanDrawing";
 import { HangmanWord } from "./HangmanWord";
 import { Keyboard } from "./Keyboard";
-
-// New Modal component
-const Modal = ({ isVisible, isWinner, onRestart }) => {
-  if (!isVisible) {
-    return null;
-  }
-
-  return (
-    <div style={{ background: "rgba(0, 0, 0, 0.5)", position: "fixed", top: 0, left: 0, width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <div style={{ background: "white", padding: "2rem", borderRadius: "8px", textAlign: "center" }}>
-        <p>{isWinner ? "Winner!" : "Nice try!"}</p>
-        <button onClick={onRestart}>Start New Game</button>
-      </div>
-    </div>
-  );
-};
+import Modal from "./Modal"; // Import the Modal component
 
 function getWord() {
   return words[Math.floor(Math.random() * words.length)];
 }
 
 function App() {
-  const [wordToGuess, setWordToGuess] = useState(getWord);
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [wordToGuess, setWordToGuess] = useState<string>(getWord);
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   const incorrectLetters = guessedLetters.filter(
     (letter) => !wordToGuess.includes(letter)
@@ -38,7 +23,7 @@ function App() {
     .split("")
     .every((letter) => guessedLetters.includes(letter));
 
-  const addGuessedLetter = useCallback((letter) => {
+  const addGuessedLetter = useCallback((letter: string) => {
     if (guessedLetters.includes(letter) || isLoser || isWinner) return;
 
     setGuessedLetters((currentLetters) => [...currentLetters, letter]);
@@ -51,38 +36,11 @@ function App() {
   };
 
   useEffect(() => {
-    const handler = (e) => {
-      const key = e.key;
-      if (!key.match(/^[a-z]$/)) return;
-
-      e.preventDefault();
-      addGuessedLetter(key);
-    };
-
-    document.addEventListener("keypress", handler);
-
-    return () => {
-      document.removeEventListener("keypress", handler);
-    };
-  }, [guessedLetters]);
-
-  useEffect(() => {
-    const handler = (e) => {
-      const key = e.key;
-      if (key !== "Enter") return;
-
-      e.preventDefault();
-
-      // Show the modal when winning or losing
+    // Show the modal when the game is won or lost
+    if (isLoser || isWinner) {
       setIsModalVisible(true);
-    };
-
-    document.addEventListener("keypress", handler);
-
-    return () => {
-      document.removeEventListener("keypress", handler);
-    };
-  }, []);
+    }
+  }, [isLoser, isWinner]);
 
   return (
     <div
@@ -97,7 +55,7 @@ function App() {
     >
       {/* Modal component */}
       <Modal
-        isVisible={isLoser || isWinner}
+        isVisible={isModalVisible}
         isWinner={isWinner}
         onRestart={restartGame}
       />
