@@ -16,7 +16,7 @@ const Modal: React.FC<ModalProps> = ({ isVisible, isWinner, onRestart }) => {
         <div className="modal-container">
             <div className="modal-content">
                 <p>{isWinner ? "Winner!" : "Nice try!"}</p>
-                <button onClick={onRestart}>Start New Game</button>
+                <button className="modal-btn" onClick={onRestart}>Start New Game</button>
             </div>
         </div>
     );
