@@ -32,6 +32,7 @@ body {
 
 .keyboard {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
     gap: 0.5rem;
 }
