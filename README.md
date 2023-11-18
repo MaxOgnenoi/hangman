@@ -1,28 +1,35 @@
-# React + TypeScript + Vite
+# Hangman Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Hangman is a classic word-guessing game where players try to guess a hidden word letter by letter.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- Express
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How to Play
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Start the development server using `npm run dev`.
+4. Open your browser and navigate to [http://localhost:5173](http://localhost:5173).
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Game Rules
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# hangman
+- You have to guess the hidden word by suggesting letters.
+- You can only make up to 6 incorrect guesses.
+- If you guess all the letters correctly before making 6 incorrect guesses, you win!
+
+## Screenshots
+
+[Include screenshots or gifs of your game here]
+
+## Author
+
+Max Ognenoi
+
+Feel free to customize this template based on your specific project details. If you have any further questions or need additional assistance, please let me know.
+
